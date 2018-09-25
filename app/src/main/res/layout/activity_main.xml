@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root_content"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
@@ -25,16 +26,52 @@
             tools:layout_editor_absoluteX="159dp"
             tools:layout_editor_absoluteY="16dp" />
 
+        <!--  Button which will take full page screenshot  -->
         <Button
-            android:id="@+id/button"
-            android:layout_width="wrap_content"
+            android:id="@+id/full_page_screenshot"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="131dp"
-            android:text="Comprar Moedas"
-            tools:layout_editor_absoluteX="117dp"
-            tools:layout_editor_absoluteY="79dp" />
+            android:layout_marginTop="119dp"
+            android:text="@string/full_page_screenshot"
+            android:textColor="@android:color/white"
+            android:textSize="14sp" />
+
+        <!--   Hidden Text which will shown when taking screenshot from below Button  -->
+        <TextView
+            android:id="@+id/hidden_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="90dp"
+            android:gravity="center"
+            android:text="@string/hidden_text"
+            android:textColor="@android:color/white"
+            android:textSize="14sp"
+            android:visibility="invisible" />
+
+        <!--  Button which will take screenshot after hiding some view and showing some view  -->
+        <Button
+            android:id="@+id/custom_page_screenshot"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="176dp"
+            android:text="@string/custom_page_screenshot"
+            android:textColor="@android:color/white"
+            android:textSize="14sp" />
+
+
+        <!--  ImageView to show taken Screenshot  -->
+        <ImageView
+            android:id="@+id/image_view"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:scaleType="fitCenter"
+            android:src="@mipmap/ic_launcher" />
 
         <Button
             android:id="@+id/button2"
@@ -60,4 +97,4 @@
         </com.google.android.gms.ads.AdView>
 
     </RelativeLayout>
-</android.support.constraint.ConstraintLayout>
+</LinearLayout>
