@@ -27,10 +27,9 @@ public class MainActivity extends AppCompatActivity implements RewardedVideoAdLi
     private TextView mText;
     int moeda;
     AdView mAdview;
-    private Button fullPageScreenshot, customPageScreenshot;
+    private Button fullPageScreenshot, bttela1;;
     private LinearLayout rootContent;
     private ImageView imageView;
-    private TextView hiddenText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,23 +54,32 @@ public class MainActivity extends AppCompatActivity implements RewardedVideoAdLi
 
         loadRewardVideoAd();
 
+        bttela1 = (Button)
+                findViewById (R.id.nextlevel);
+        bttela1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+                Intent MainActivity = new
+                        Intent(MainActivity.this, SecondScreen.class);
+                MainActivity.this.startActivity(MainActivity);
+
+            }
+        });
+
     }
 
     private void findViews() {
         fullPageScreenshot = (Button) findViewById(R.id.full_page_screenshot);
-        customPageScreenshot = (Button) findViewById(R.id.custom_page_screenshot);
 
         rootContent = (LinearLayout) findViewById(R.id.root_content);
 
         imageView = (ImageView) findViewById(R.id.image_view);
 
-        hiddenText = (TextView) findViewById(R.id.hidden_text);
     }
 
     /*  Implement Click events over Buttons */
     private void implementClickEvents() {
         fullPageScreenshot.setOnClickListener(this);
-        customPageScreenshot.setOnClickListener(this);
     }
 
     @Override
@@ -79,9 +87,6 @@ public class MainActivity extends AppCompatActivity implements RewardedVideoAdLi
         switch (v.getId()) {
             case R.id.full_page_screenshot:
                 takeScreenshot(ScreenshotType.FULL);
-                break;
-            case R.id.custom_page_screenshot:
-                takeScreenshot(ScreenshotType.CUSTOM);
                 break;
         }
     }
@@ -93,19 +98,6 @@ public class MainActivity extends AppCompatActivity implements RewardedVideoAdLi
             case FULL:
                 //If Screenshot type is FULL take full page screenshot i.e our root content.
                 b = ScreenshotUtils.getScreenShot(rootContent);
-                break;
-            case CUSTOM:
-                //If Screenshot type is CUSTOM
-
-                fullPageScreenshot.setVisibility(View.INVISIBLE);//set the visibility to INVISIBLE of first button
-                hiddenText.setVisibility(View.VISIBLE);//set the visibility to VISIBLE of hidden text
-
-                b = ScreenshotUtils.getScreenShot(rootContent);
-
-                //After taking screenshot reset the button and view again
-                fullPageScreenshot.setVisibility(View.VISIBLE);//set the visibility to VISIBLE of first button again
-                hiddenText.setVisibility(View.INVISIBLE);//set the visibility to INVISIBLE of hidden text
-
                 break;
         }
 
