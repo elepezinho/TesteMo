@@ -1,9 +1,9 @@
 <resources>
     <string name="app_name">My Application</string>
     <string name="sharing_text">Você pode me ajudar com essa fase? Baixe o Filmes em Emoji e Jogue Também: https://www.google.com.br/</string>
-    <string name="share_title">Share Screenshot</string>
+    <string name="share_title">Peça Ajuda a Seus Amigos!</string>
     <string name="screenshot_take_failed">Falha ao compartilhar!!</string>
-    <string name="wait">Please wait…</string>
+    <string name="wait">Espere um minuto…</string>
     <string name="full_page_screenshot">Full Page Screenshot</string>
     <string name="hidden_text">Hidden Text</string>
     <string name="custom_page_screenshot">Next Level</string>
